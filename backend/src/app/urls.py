@@ -6,4 +6,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # Enables the DRF browsable API page
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+    # Enables the DRF Articles API page
+    path("", include("articles.urls")),
 ]
