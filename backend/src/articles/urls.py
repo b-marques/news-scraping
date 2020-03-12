@@ -8,5 +8,5 @@ urlpatterns = [
         views.ArticleDetail.as_view(),
         name=views.ArticleDetail.name,
     ),
-    path("", views.ArticlesApiRoot.as_view(), name=views.ArticlesApiRoot.name,),
+    path("", views.ArticleApiRoot.as_view(), name=views.ArticleApiRoot.name,),
 ]

@@ -9,7 +9,7 @@ from articles import serializers
 from articles.models import Article
 
 
-class ArticlesApiRoot(generics.GenericAPIView):
+class ArticleApiRoot(generics.GenericAPIView):
     name = "articles-api-root"
     queryset = Article.objects.none()
 
