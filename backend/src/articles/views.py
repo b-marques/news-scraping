@@ -4,9 +4,9 @@ from django.shortcuts import get_object_or_404
 from rest_framework import generics
 from rest_framework.reverse import reverse
 from rest_framework.response import Response
-from rest_framework.pagination import PageNumberPagination
 
 from articles import serializers
+from articles import paginations
 from articles.models import Article
 from subjects.models import Subject
 
@@ -34,13 +34,13 @@ class ArticleApiRoot(generics.GenericAPIView):
 class ArticleList(generics.ListAPIView):
     queryset = Article.objects.all().order_by("-publish_date")
     serializer_class = serializers.ArticleListSerializer
-    PageNumberPagination.page_size = 10
+    pagination_class = paginations.ArticlePagination
     name = "article-list"
 
 
 class BySubjectArticleList(generics.ListAPIView):
     serializer_class = serializers.ArticleListSerializer
-    PageNumberPagination.page_size = 10
+    pagination_class = paginations.ArticlePagination
     name = "subject-article-list"
 
     def get_queryset(self):
