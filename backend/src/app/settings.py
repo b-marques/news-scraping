@@ -43,7 +43,7 @@ THIRD_PARTY_APPS = [
     "versatileimagefield",
 ]
 
-PROJECT_APPS = ["users", "subjects", "authors", "articles"]
+PROJECT_APPS = ["users", "subjects", "authors", "articles", "api"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
@@ -139,6 +139,8 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.TokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ],
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.NamespaceVersioning",
+    "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
 }
 
 # Auth
