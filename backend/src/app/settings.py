@@ -43,7 +43,7 @@ THIRD_PARTY_APPS = [
     "versatileimagefield",
 ]
 
-PROJECT_APPS = ["users", "subjects", "authors", "articles"]
+PROJECT_APPS = ["users", "subjects", "authors", "articles", "api"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
