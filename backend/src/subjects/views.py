@@ -1,3 +1,5 @@
+from rest_framework import generics
+
 from subjects.models import Subject
 from subjects.paginations import SubjectPagination
 from subjects.serializers import SubjectSerializer
