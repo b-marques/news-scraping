@@ -1,0 +1,8 @@
+.author-name {
+  font-family: "OpenSans", var(--base-font-family);
+  font-style: italic;
+  font-size: var(--13px);
+  color: var(--grey-1);
+  letter-spacing: 0;
+  line-height: var(--18px);
+}
