@@ -8,7 +8,7 @@ export const AuthorImageSize = {
 
 const AuthorImage = props => {
   const { children, image, size, className } = props
-  const classProps = `${styles['author-image']} ${className}`
+  const classProps = `${styles['author-image']} ${styles[size]} ${className}`
   return (
     <div style={{ backgroundImage: `url(${image})` }} className={classProps}>
       {children}
