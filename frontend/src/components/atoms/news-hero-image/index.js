@@ -20,7 +20,7 @@ NewsHeroImage.defaultProps = {
   className: '',
   children: '',
   image: '',
-  size: 'medium',
+  size: NewsHeroImageSize.MEDIUM,
 }
 
 export default NewsHeroImage
