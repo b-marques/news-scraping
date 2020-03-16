@@ -1,5 +1,7 @@
 const path = require('path')
 
+const resolve = require('../webpack.config.resolve')
+
 module.exports = async ({ config }) => {
   const rules = config.module.rules.filter(rule => !rule.test.test('.css'))
 
@@ -48,6 +50,10 @@ module.exports = async ({ config }) => {
       ],
     },
   ]
+  config = {
+    ...config,
+    ...resolve,
+  }
 
   return config
 }

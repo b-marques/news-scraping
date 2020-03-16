@@ -3,7 +3,7 @@ import { withInfo } from '@storybook/addon-info'
 
 import CheesecakeTheme from './ckl-theme'
 
-import '../src/styles/styles.css'
+import '_styles/styles.css'
 
 const stories = require.context('../src/components', true, /stories\.js$/)
 
