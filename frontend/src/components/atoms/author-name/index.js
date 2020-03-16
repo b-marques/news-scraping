@@ -4,7 +4,7 @@ import styles from './styles.css'
 const AuthorName = props => {
   const { children, className } = props
   const classProps = `${styles['author-name']} ${className}`
-  return <span className={classProps}>{children}</span>
+  return <span className={classProps}>{`by ${children}`}</span>
 }
 
 AuthorName.defaultProps = {

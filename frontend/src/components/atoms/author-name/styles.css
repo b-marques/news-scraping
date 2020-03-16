@@ -5,4 +5,5 @@
   color: var(--grey-1);
   letter-spacing: 0;
   line-height: var(--18px);
+  padding: 0.5rem;
 }
