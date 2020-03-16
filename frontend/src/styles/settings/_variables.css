@@ -1,0 +1,33 @@
+:root {
+  /*
+   * Colors
+   */
+  --politics: #d0021b;
+  --business: #bd10e0;
+  --tech: #4a90e2;
+  --science: #7cbb37;
+  --sports: #f5a623;
+  --type-body: #000000;
+  --black: #000000;
+  --white: #ffffff;
+  --grey-1: #808080;
+  --grey-2: #686868;
+  --grey-3: #e4e4e4;
+
+  /*
+   * Fonts
+   */
+  --base-font-family: sans-serif;
+  --headers-font-family: serif;
+  --base-font-lineheight: 1.5em;
+  /* Size ( based on 1rem = 16px )*/
+  --10px: 0.625rem;
+  --12px: 0.75rem;
+  --13px: 0.8125rem;
+  --14px: 0.875rem;
+  --17px: 1.0625rem;
+  --18px: 1.125rem;
+  --22px: 1.375rem;
+  --29px: 1.8125rem;
+  --35px: 2.1875rem;
+}
