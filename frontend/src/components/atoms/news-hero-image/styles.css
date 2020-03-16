@@ -1,0 +1,16 @@
+.news-hero-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--grey-3);
+}
+
+/* Size */
+.medium {
+  width: 262px;
+  height: 167px;
+}
+
+.large {
+  width: 555px;
+  height: 354px;
+}
