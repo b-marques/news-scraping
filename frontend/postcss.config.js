@@ -1,11 +1,8 @@
 const autoprefixer = require('autoprefixer')
 const postCSSImport = require('postcss-import')()
 const postCSSNested = require('postcss-nested')
-const postCSSCssVariables = require('postcss-css-variables')
 const postCSSCustomMedia = require('postcss-custom-media')
 const colorFunction = require('postcss-color-function')
-
-const cssVariables = require('./src/config/css-variables')
 
 const postCSSAutoprefixer = autoprefixer()
 
@@ -27,9 +24,6 @@ module.exports = {
     postCSSImport,
     postCSSAutoprefixer,
     postCSSNested,
-    postCSSCssVariables({
-      variables: cssVariables,
-    }),
     postCSSCustomMedia({
       importFrom: {
         customMedia: {
