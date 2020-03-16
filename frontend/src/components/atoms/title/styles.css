@@ -1,0 +1,19 @@
+.title {
+  font-family: "Lato", var(--base-font-family);
+  color: var(--black);
+  letter-spacing: 0;
+  line-height: var(--35px);
+
+  &:hover {
+    color: var(--tech);
+  }
+}
+
+/* Size */
+.medium {
+  font-size: var(--17px);
+}
+
+.large {
+  font-size: var(--29px);
+}
