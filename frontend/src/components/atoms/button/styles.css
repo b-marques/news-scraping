@@ -1,0 +1,19 @@
+.button {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--white);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+}
+
+/* Size */
+.medium {
+  font-size: var(--14px);
+  letter-spacing: 0;
+  line-height: var(--17px);
+}
+
+.large {
+  font-size: var(--18px);
+  letter-spacing: 0;
+  line-height: var(--22px);
+}
