@@ -3,10 +3,6 @@
   color: var(--black);
   letter-spacing: 0;
   line-height: var(--35px);
-
-  &:hover {
-    color: var(--tech);
-  }
 }
 
 /* Size */
