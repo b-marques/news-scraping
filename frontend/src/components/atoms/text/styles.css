@@ -1,0 +1,7 @@
+.text {
+  font-family: "OpenSans", var(--base-font-family);
+  font-size: var(--14px);
+  color: var(--grey-2);
+  letter-spacing: 0;
+  line-height: var(--12px);
+}
