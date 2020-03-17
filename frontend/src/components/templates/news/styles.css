@@ -1,0 +1,123 @@
+.featured {
+  display: grid;
+  grid-template:
+    "tag" 23px
+    "." 8px
+    "heroimage" 185px
+    "." 15px
+    "title" auto
+    "." 10px
+    "author" auto
+    "." 20px
+    "text" 1fr
+    / 100%;
+
+  @media (--md-viewport) {
+    grid-template:
+      "tag" 23px
+      "." 8px
+      "heroimage" 460px
+      "." 15px
+      "title" auto
+      "." 10px
+      "author" 1fr
+      / 100%;
+  }
+
+  @media (--xl-viewport) {
+    grid-template:
+      "tag" 23px
+      "." 8px
+      "heroimage" 354px
+      "." 15px
+      "title" auto
+      "." 10px
+      "author" 1fr
+      / 100%;
+  }
+}
+
+/* Hide featured news text from larger displays */
+.featured > .text {
+  @media (--md-viewport) {
+    display: none;
+  }
+}
+
+.headline {
+  display: grid;
+  grid-template:
+    "tag" 23px
+    "." 8px
+    "heroimage" 185px
+    "." 15px
+    "title" auto
+    "." 10px
+    "author" auto
+    "." 20px
+    "text" 1fr
+    / 100%;
+
+  @media (--md-viewport) {
+    display: grid;
+    grid-template:
+      "tag" 23px
+      "." 8px
+      "heroimage" 220px
+      "." 15px
+      "title" auto
+      "." 10px
+      "author" auto
+      "." 20px
+      "text" 1fr
+      / 100%;
+  }
+
+  @media (--xl-viewport) {
+    grid-template:
+      "tag" 23px
+      "." 8px
+      "heroimage" 167px
+      "." 15px
+      "title" auto
+      "." 10px
+      "author" auto
+      "." 20px
+      "text" 1fr
+      / 100%;
+  }
+}
+
+.default {
+  display: grid;
+  grid-template:
+    "tag   " 23px
+    ".     " 8px
+    "title " auto
+    ".     " 10px
+    "author" auto
+    ".     " 20px
+    "text  " 1fr
+    / 100%;
+}
+
+.tag {
+  grid-area: tag;
+  align-self: end;
+}
+
+.heroimage {
+  grid-area: heroimage;
+}
+
+.title {
+  grid-area: title;
+}
+
+.author {
+  grid-area: author;
+}
+
+.text {
+  grid-area: text;
+}
