@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './styles.css'
 
 import NewsHeroImage from '_atoms/news-hero-image'
 import Button, { ButtonSize } from '_atoms/button'
@@ -10,7 +11,7 @@ export const NewsHeroTheme = {
 
 const NewsHero = props => {
   const { className, newsHeroImage, theme, button } = props
-  const classProps = `${className}`
+  const classProps = `${styles['news-hero']} ${className}`
   return (
     <div className={classProps}>
       {theme == NewsHeroTheme.FEATURED && (

@@ -1,0 +1,9 @@
+.news-hero {
+  &:hover button {
+    visibility: visible;
+  }
+
+  button {
+    visibility: hidden;
+  }
+}
