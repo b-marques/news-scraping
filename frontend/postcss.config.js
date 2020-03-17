@@ -27,12 +27,12 @@ module.exports = {
     postCSSCustomMedia({
       importFrom: {
         customMedia: {
-          '--xs-viewport': `(max-width: ${gridBreakpoints.xs})`,
-          '--sm-viewport': `(max-width: ${gridBreakpoints.sm})`,
-          '--md-viewport': `(max-width: ${gridBreakpoints.md})`,
-          '--lg-viewport': `(max-width: ${gridBreakpoints.lg})`,
-          '--xl-viewport': `(max-width: ${gridBreakpoints.xl})`,
-          '--xxl-viewport': `(max-width: ${gridBreakpoints.xxl})`,
+          '--xs-viewport': `(min-width: ${gridBreakpoints.xs})`,
+          '--sm-viewport': `(min-width: ${gridBreakpoints.sm})`,
+          '--md-viewport': `(min-width: ${gridBreakpoints.md})`,
+          '--lg-viewport': `(min-width: ${gridBreakpoints.lg})`,
+          '--xl-viewport': `(min-width: ${gridBreakpoints.xl})`,
+          '--xxl-viewport': `(min-width: ${gridBreakpoints.xxl})`,
           '--retina-display': `
           (-webkit-min-device-pixel-ratio: ${gridBreakpoints.retina.minPixelRatio}),
           (min-resolution: ${gridBreakpoints.retina.minResolution})
