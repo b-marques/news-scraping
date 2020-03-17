@@ -1,6 +1,6 @@
 import React from 'react'
 
-import NewsHeroImage, { NewsHeroImageSize } from '_atoms/news-hero-image'
+import NewsHeroImage from '_atoms/news-hero-image'
 import Button, { ButtonSize } from '_atoms/button'
 
 export const NewsHeroTheme = {
@@ -15,14 +15,14 @@ const NewsHero = props => {
     <div className={classProps}>
       {theme == NewsHeroTheme.FEATURED && (
         <>
-          <NewsHeroImage image={newsHeroImage} size={NewsHeroImageSize.LARGE}>
+          <NewsHeroImage image={newsHeroImage}>
             <Button size={ButtonSize.LARGE}>{button}</Button>
           </NewsHeroImage>
         </>
       )}
       {theme == NewsHeroTheme.DEFAULT && (
         <>
-          <NewsHeroImage image={newsHeroImage} size={NewsHeroImageSize.MEDIUM}>
+          <NewsHeroImage image={newsHeroImage}>
             <Button size={ButtonSize.MEDIUM}>{button}</Button>
           </NewsHeroImage>
         </>
