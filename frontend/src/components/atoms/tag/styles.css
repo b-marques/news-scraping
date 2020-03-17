@@ -1,7 +1,10 @@
 .tag {
-  font-family: "Lato", var(--base-font-family);
-  font-size: var(--10px);
+  font-family: Lato, var(--base-font-family);
+  font-size: 0.71rem;
+  font-weight: 400;
   text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 0.86rem;
 }
 
 /* Theme */

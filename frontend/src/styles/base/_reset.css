@@ -27,7 +27,8 @@ html,
 body {
   color: var(--type-body);
   font-family: var(--base-font-family);
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 14px;
   line-height: var(--base-font-lineheight);
   -webkit-font-smoothing: antialiased;
   width: 100%;

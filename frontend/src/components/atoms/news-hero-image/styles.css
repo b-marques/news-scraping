@@ -9,13 +9,11 @@
 
 /* Size */
 .medium {
-  width: 262px;
-  height: 167px;
+  width: 18.71rem;
+  height: 11.93rem;
 }
 
 .large {
-  min-width: 555px;
-  min-height: 354px;
-  width: 100%;
-  height: 100%;
+  width: 39.64rem;
+  height: 25.29rem;
 }
