@@ -1,9 +1,13 @@
 from rest_framework import serializers
 from articles.models import Article
+from authors.serializers import AuthorSerializer
+from subjects.serializers import SubjectSerializer
 
 
 class ArticleListSerializer(serializers.ModelSerializer):
     text = serializers.ReadOnlyField(source="truncate_text")
+    author = AuthorSerializer()
+    subject = SubjectSerializer()
 
     class Meta:
         fields = (
