@@ -39,7 +39,8 @@ class Homepage extends React.Component {
     />
   )
 
-  getArticles(subject = '') {
+  getArticles() {
+    const subject = this.props.match.params.subject || ''
     this.setState({ isLoading: true })
     http
       .get('articles/' + subject)
@@ -51,6 +52,12 @@ class Homepage extends React.Component {
         )
       )
       .catch(error => this.setState({ isLoading: false, hasError: true, articles: [] }))
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.subject !== prevProps.match.params.subject) {
+      this.getArticles()
+    }
   }
 
   componentDidMount() {
@@ -91,7 +98,7 @@ class Homepage extends React.Component {
   render() {
     return (
       <>
-        <NavBar onClick={subject => this.getArticles(subject)} />
+        <NavBar />
         {this.buildContent()}
       </>
     )

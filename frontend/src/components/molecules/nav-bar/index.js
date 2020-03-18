@@ -6,7 +6,7 @@ import Logo from '_atoms/logo'
 import NavButton from '_atoms/nav-button'
 
 const NavBar = props => {
-  const { className, onClick } = props
+  const { className } = props
   const [isExpanded, setExpanded] = useState(false)
   const [activeItem, setActive] = useState('')
   const [isLargeScreen, setIsLargeScreen] = useState(false)
@@ -33,7 +33,6 @@ const NavBar = props => {
 
   const handleClick = subject => {
     setActive(subject)
-    onClick(subject)
   }
 
   return (

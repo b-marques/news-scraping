@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './styles.css'
+import { Link } from 'react-router-dom'
 
 const NavItem = props => {
   const { children, className, onClick, activeItem } = props
@@ -7,9 +8,9 @@ const NavItem = props => {
     activeItem === children ? styles.active : ''
   }`
   return (
-    <a className={classProps} href="#">
+    <Link className={classProps} to={`/${children}`}>
       <span onClick={() => onClick(children)}>{children}</span>
-    </a>
+    </Link>
   )
 }
 
