@@ -1,5 +1,5 @@
 import React from 'react'
-import newsStyles from '_templates/news/styles.css'
+import styles from './styles.css'
 import Tag from '_atoms/tag'
 import NewsHero, { NewsHeroTheme } from '_molecules/news-hero'
 import Title, { TitleSize } from '_atoms/title'
@@ -13,23 +13,25 @@ export const NewsTheme = {
 }
 
 const News = props => {
-  const classProps = `${props.className} ${newsStyles[props.theme]}`
+  const classProps = `${props.className} ${styles[props.theme]}`
   return (
     <div className={classProps}>
-      <Tag className={newsStyles.tag}>{props.tag}</Tag>
+      <Tag className={styles.tag} theme={props.tag}>
+        {props.tag}
+      </Tag>
       {props.theme == NewsTheme.FEATURED && (
         <>
           <NewsHero
-            className={newsStyles.heroimage}
+            className={styles.heroimage}
             newsHeroImage={props.image}
             button={props.button}
             theme={NewsHeroTheme.FEATURED}
           />
-          <Title className={newsStyles.title} size={TitleSize.LARGE}>
+          <Title className={styles.title} size={TitleSize.LARGE}>
             {props.title}
           </Title>
           <Author
-            className={newsStyles.author}
+            className={styles.author}
             authorImage={props.authorImage}
             authorName={props.authorName}
             theme={AuthorTheme.FEATURED}
@@ -39,14 +41,14 @@ const News = props => {
       {props.theme == NewsTheme.HEADLINE && (
         <>
           <NewsHero
-            className={newsStyles.heroimage}
+            className={styles.heroimage}
             newsHeroImage={props.image}
             button={props.button}
             theme={NewsHeroTheme.DEFAULT}
           />
-          <Title className={newsStyles.title}>{props.title}</Title>
+          <Title className={styles.title}>{props.title}</Title>
           <Author
-            className={newsStyles.author}
+            className={styles.author}
             authorImage={props.authorImage}
             authorName={props.authorName}
             theme={AuthorTheme.DEFAULT}
@@ -55,16 +57,16 @@ const News = props => {
       )}
       {props.theme == NewsTheme.DEFAULT && (
         <>
-          <Title className={newsStyles.title}>{props.title}</Title>
+          <Title className={styles.title}>{props.title}</Title>
           <Author
-            className={newsStyles.author}
+            className={styles.author}
             authorImage={props.authorImage}
             authorName={props.authorName}
             theme={AuthorTheme.DEFAULT}
           />
         </>
       )}
-      <Text className={newsStyles.text}>{props.text}</Text>
+      <Text className={styles.text}>{props.text}</Text>
     </div>
   )
 }
