@@ -2,7 +2,6 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import styles from './styles.css'
-import newsStyles from '../news/styles.css'
 
 const defaultStyle = {
   outline: '1px solid #eee',
