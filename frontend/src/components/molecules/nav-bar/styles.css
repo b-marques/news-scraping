@@ -1,0 +1,38 @@
+.nav-bar {
+  height: 100%;
+  border-bottom: 1px solid var(--grey-4);
+  display: grid;
+  align-items: center;
+  grid-template:
+    ".  navbutton . logo ." 56px
+    ".  navitems  navitems navitems ." auto
+    / 6.5% auto 37.8% auto 47.1%;
+
+  @media (--lg-viewport) {
+    height: 100%;
+    grid-template:
+      ". logo . navitems ." 56px
+      / 9.4% auto auto auto 9.4%;
+  }
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.navitems {
+  grid-area: navitems;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+
+  @media (--lg-viewport) {
+    display: flex;
+    flex-direction: row;
+    visibility: visible;
+  }
+}
+
+.button {
+  grid-area: navbutton;
+}
