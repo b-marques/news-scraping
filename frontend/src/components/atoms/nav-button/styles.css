@@ -1,0 +1,9 @@
+.nav-button {
+  width: 24px;
+  hieght: 19px;
+  @media (--lg-viewport) {
+    display: none;
+    border: 0;
+    padding: 0;
+  }
+}
