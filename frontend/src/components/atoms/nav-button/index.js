@@ -19,7 +19,8 @@ const NavButton = props => {
       className={classProps}
       src={isRetina(navButton, navButton2x)}
       alt="Nav Buton"
-      onClick={onClick}></img>
+      onClick={onClick}
+    />
   )
 }
 
