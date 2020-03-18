@@ -180,3 +180,6 @@ VERSATILEIMAGEFIELD_SETTINGS = {
 #         ('gallery_large', 'crop__800x450'),
 #     ],
 # }
+
+# CORS
+CORS_ORIGIN_WHITELIST = env("CORS_ORIGIN_WHITELIST", default=[])
