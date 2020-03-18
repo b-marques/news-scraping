@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -9,4 +11,4 @@ urlpatterns = [
     path("v2/api-auth/", include("rest_framework.urls", namespace="rest_framework_v2")),
     path("v1/", include(("api.urls", "api"), namespace="v1")),
     path("v2/", include(("api.v2.urls", "api.v2"), namespace="v2")),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
