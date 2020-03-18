@@ -21,15 +21,13 @@
 }
 
 .navitems {
+  display: flex;
   grid-area: navitems;
   flex-direction: column;
   justify-content: space-between;
-  display: flex;
 
   @media (--lg-viewport) {
-    display: flex;
     flex-direction: row;
-    visibility: visible;
   }
 }
 
