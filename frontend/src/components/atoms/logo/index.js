@@ -14,7 +14,11 @@ const isRetina = (first, second) => {
 const Logo = props => {
   const { className } = props
   const classProps = `${styles.logo} ${className}`
-  return <img className={classProps} src={isRetina(logo, logo2x)}></img>
+  return (
+    <a href="/" className={classProps}>
+      <img src={isRetina(logo, logo2x)}></img>
+    </a>
+  )
 }
 
 Logo.defaultProps = {
