@@ -1,0 +1,27 @@
+:root {
+  /*
+   * Colors
+   */
+  --politics: #d0021b;
+  --business: #bd10e0;
+  --tech: #4a90e2;
+  --science: #7cbb37;
+  --sports: #f5a623;
+  --type-body: #000000;
+  --black: #000000;
+  --white: #ffffff;
+  --grey-1: #808080;
+  --grey-2: #686868;
+  --grey-3: #e4e4e4;
+  --grey-4: #979797;
+  --info: #00b7ff;
+  --error: #d94847;
+  --warning: #febe00;
+
+  /*
+   * Fonts
+   */
+  --base-font-family: sans-serif;
+  --headers-font-family: serif;
+  --base-font-lineheight: 1.5em;
+}

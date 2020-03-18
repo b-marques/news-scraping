@@ -1,13 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ExampleComponent from './components/example-component'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import './styles/base.css'
+import Homepage from '_pages/homepage'
 
 const App = () => (
-  <div>
-    <ExampleComponent />
-  </div>
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" exact={true} component={Homepage} />
+      <Route path="/:subject" component={Homepage} />
+      <Route path="*" component={Homepage} />
+    </Switch>
+  </BrowserRouter>
 )
 
 ReactDOM.render(<App />, document.querySelector('#root'))
