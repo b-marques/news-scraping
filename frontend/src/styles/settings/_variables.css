@@ -14,6 +14,9 @@
   --grey-2: #686868;
   --grey-3: #e4e4e4;
   --grey-4: #979797;
+  --info: #00b7ff;
+  --error: #d94847;
+  --warning: #febe00;
 
   /*
    * Fonts
