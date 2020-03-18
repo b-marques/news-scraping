@@ -6,10 +6,13 @@ import Logo from '_atoms/logo'
 import NavButton from '_atoms/nav-button'
 
 const NavBar = props => {
-  const { children, className } = props
+  const { className, onClick } = props
   const [isExpanded, setExpanded] = useState(false)
+  const [activeItem, setActive] = useState('')
   const [isLargeScreen, setIsLargeScreen] = useState(false)
+  const classProps = `${styles['nav-bar']} ${className}`
 
+  /* Reset navitems visibility after resize */
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 992px)')
     mediaQuery.addListener(handleMediaQueryChange)
@@ -28,18 +31,32 @@ const NavBar = props => {
     }
   }
 
-  const classProps = `${styles['nav-bar']} ${className}`
+  const handleClick = subject => {
+    setActive(subject)
+    onClick(subject)
+  }
+
   return (
     <div className={classProps}>
       <NavButton className={styles.button} onClick={() => setExpanded(!isExpanded)} />
       <Logo className={styles.logo} />
       {(isLargeScreen || isExpanded) && (
         <div className={styles.navitems}>
-          <NavItem>Politics</NavItem>
-          <NavItem>Businesss</NavItem>
-          <NavItem>Tech</NavItem>
-          <NavItem>Science</NavItem>
-          <NavItem>Sports</NavItem>
+          <NavItem onClick={handleClick} activeItem={activeItem}>
+            politics
+          </NavItem>
+          <NavItem onClick={handleClick} activeItem={activeItem}>
+            business
+          </NavItem>
+          <NavItem onClick={handleClick} activeItem={activeItem}>
+            tech
+          </NavItem>
+          <NavItem onClick={handleClick} activeItem={activeItem}>
+            science
+          </NavItem>
+          <NavItem onClick={handleClick} activeItem={activeItem}>
+            sports
+          </NavItem>
         </div>
       )}
     </div>
