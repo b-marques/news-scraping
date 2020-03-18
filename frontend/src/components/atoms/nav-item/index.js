@@ -2,12 +2,14 @@ import React from 'react'
 import styles from './styles.css'
 
 const NavItem = props => {
-  const { children, className, onClick } = props
-  const classProps = `${styles['nav-item']} ${className}`
+  const { children, className, onClick, activeItem } = props
+  const classProps = `${styles['nav-item']} ${className} ${
+    activeItem === children ? styles.active : ''
+  }`
   return (
-    <span onClick={onClick} className={classProps}>
-      {children}
-    </span>
+    <a className={classProps} href="#">
+      <span onClick={() => onClick(children)}>{children}</span>
+    </a>
   )
 }
 
