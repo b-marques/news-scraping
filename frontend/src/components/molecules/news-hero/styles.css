@@ -1,9 +1,9 @@
 .news-hero {
-  &:hover button {
-    visibility: visible;
-  }
-
   button {
-    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+  }
+  &:hover button {
+    opacity: 1;
   }
 }
