@@ -1,8 +1,9 @@
 import React from 'react'
-import styles from './styles.css'
 
 import NewsHeroImage from '_atoms/news-hero-image'
 import Button, { ButtonSize } from '_atoms/button'
+
+import styles from './styles.css'
 
 export const NewsHeroTheme = {
   FEATURED: 'featured',

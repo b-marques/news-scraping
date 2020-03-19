@@ -17,9 +17,9 @@ const defaultStyle2 = {
 storiesOf('HomepageTemplate', module).add('default', () => (
   <div className={styles.default} style={defaultStyle}>
     <div className={styles.navbar} style={defaultStyle2} />
-    <div className={styles.featured} style={defaultStyle2}></div>
-    <div className={styles.headlines} style={defaultStyle2}></div>
-    <div className={styles.defaults} style={defaultStyle2}></div>
-    <div className={styles.divider} style={defaultStyle2}></div>
+    <div className={styles.featured} style={defaultStyle2} />
+    <div className={styles.headlines} style={defaultStyle2} />
+    <div className={styles.defaults} style={defaultStyle2} />
+    <div className={styles.divider} style={defaultStyle2} />
   </div>
 ))

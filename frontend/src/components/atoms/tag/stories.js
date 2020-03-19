@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import Tag, { TagTheme } from './'
+import Tag, { TagTheme } from '.'
 
 storiesOf('Tag', module)
   .add('default', () => <Tag theme={TagTheme.DEFAULT}>Tag</Tag>)

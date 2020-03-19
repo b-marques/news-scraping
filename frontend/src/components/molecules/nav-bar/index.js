@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import styles from './styles.css'
 
 import NavItem from '_atoms/nav-item'
 import Logo from '_atoms/logo'
 import NavButton from '_atoms/nav-button'
+
+import styles from './styles.css'
 
 const NavBar = props => {
   const { className } = props

@@ -1,8 +1,9 @@
 import React from 'react'
-import styles from './styles.css'
 
 import navButton from '_images/menu.png'
 import navButton2x from '_images/menu@2x.png'
+
+import styles from './styles.css'
 
 const isRetina = (first, second) => {
   if (window.devicePixelRatio >= 2) {

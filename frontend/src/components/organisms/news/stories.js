@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import News, { NewsTheme } from './'
+import News, { NewsTheme } from '.'
 
 storiesOf('News', module)
   .add('default', () => (

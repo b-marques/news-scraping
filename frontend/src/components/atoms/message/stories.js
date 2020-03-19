@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import Message, { MessageTheme } from './'
+import Message, { MessageTheme } from '.'
 
 storiesOf('Message', module)
   .add('default', () => <Message theme={MessageTheme.DEFAULT}>Message</Message>)

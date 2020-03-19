@@ -7,7 +7,6 @@ import Divider from '_atoms/divider'
 import Message, { MessageTheme } from '_atoms/message'
 import Loader from '_atoms/loader'
 import view from '_templates/homepage/styles.css'
-
 import { http } from '_utils/http'
 
 const FeaturedNews = [0]
@@ -43,7 +42,7 @@ class Homepage extends React.Component {
     const subject = this.props.match.params.subject || ''
     this.setState({ isLoading: true })
     http
-      .get('articles/' + subject)
+      .get(`articles/${subject}`)
       .then(response =>
         setTimeout(
           () =>
@@ -72,24 +71,18 @@ class Homepage extends React.Component {
       return <Message theme={MessageTheme.WARNING}>Theres is no news to display!</Message>
     return (
       <div className={view.default}>
-        <div className={view.navbar}></div>
+        <div className={view.navbar} />
         <div className={view.featured}>
-          {FeaturedNews.map(i => {
-            return this.state.articles[i] && this.buildNews(i, NewsTheme.FEATURED)
-          })}
+          {FeaturedNews.map(i => this.state.articles[i] && this.buildNews(i, NewsTheme.FEATURED))}
         </div>
         <div className={view.headlines}>
-          {HeadlineNews.map(i => {
-            return this.state.articles[i] && this.buildNews(i, NewsTheme.HEADLINE)
-          })}
+          {HeadlineNews.map(i => this.state.articles[i] && this.buildNews(i, NewsTheme.HEADLINE))}
         </div>
         <div className={view.divider}>
           <Divider />
         </div>
         <div className={view.defaults}>
-          {DefaultNews.map(i => {
-            return this.state.articles[i] && this.buildNews(i, NewsTheme.DEFAULT)
-          })}
+          {DefaultNews.map(i => this.state.articles[i] && this.buildNews(i, NewsTheme.DEFAULT))}
         </div>
       </div>
     )

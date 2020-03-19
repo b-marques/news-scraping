@@ -1,8 +1,9 @@
 import React from 'react'
-import styles from './styles.css'
 
 import AuthorName from '_atoms/author-name'
 import AuthorImage, { AuthorImageSize } from '_atoms/author-image'
+
+import styles from './styles.css'
 
 export const AuthorTheme = {
   FEATURED: 'featured',

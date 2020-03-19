@@ -1,8 +1,9 @@
 import React from 'react'
-import styles from './styles.css'
 
 import logo from '_images/logo.png'
 import logo2x from '_images/logo@2x.png'
+
+import styles from './styles.css'
 
 const isRetina = (first, second) => {
   if (window.devicePixelRatio >= 2) {
@@ -16,7 +17,7 @@ const Logo = props => {
   const classProps = `${styles.logo} ${className}`
   return (
     <a href="/" className={classProps}>
-      <img src={isRetina(logo, logo2x)}></img>
+      <img src={isRetina(logo, logo2x)} />
     </a>
   )
 }

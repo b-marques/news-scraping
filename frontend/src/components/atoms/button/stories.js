@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import Button, { ButtonSize } from './'
+import Button, { ButtonSize } from '.'
 
 storiesOf('Button', module)
   .add('default', () => <Button>Button</Button>)

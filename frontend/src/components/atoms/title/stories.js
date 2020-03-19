@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import Title, { TitleSize } from './'
+import Title, { TitleSize } from '.'
 
 storiesOf('Title', module)
   .add('default', () => <Title>Title</Title>)

@@ -1,10 +1,12 @@
 import React from 'react'
-import styles from './styles.css'
+
 import Tag from '_atoms/tag'
 import NewsHero, { NewsHeroTheme } from '_molecules/news-hero'
 import Title, { TitleSize } from '_atoms/title'
 import Author, { AuthorTheme } from '_molecules/author'
 import Text from '_atoms/text'
+
+import styles from './styles.css'
 
 export const NewsTheme = {
   FEATURED: 'featured',

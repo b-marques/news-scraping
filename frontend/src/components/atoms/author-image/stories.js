@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import AuthorImage, { AuthorImageSize } from './'
+import AuthorImage, { AuthorImageSize } from '.'
 
 storiesOf('AuthorImage', module)
   .add('default', () => <AuthorImage />)
