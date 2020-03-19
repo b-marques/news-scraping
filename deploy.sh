@@ -1,8 +1,4 @@
 #!/bin/sh
-docker container prune -f
-docker image prune -f
-docker network prune -f
-
 docker build backend --tag ckl_backend
 docker build nginx --tag ckl_nginx
 docker build frontend --tag ckl_frontend
