@@ -21,12 +21,12 @@
         "devDependencies": [
           "**/*.dev.js",
           "**/*.test.js",
-          "**/*.stories.js",
+          "**/*stories.js",
           "server.js",
           "next.config.js",
           "postcss.config.js",
           "webpack.config.*",
-          "storybook/*"
+          ".storybook/*"
         ]
       }
     ],

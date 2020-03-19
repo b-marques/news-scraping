@@ -1,5 +1,5 @@
 .author-name {
-  font-family: "OpenSans", var(--base-font-family);
+  font-family: OpenSans, sans-serif;
   font-style: italic;
   font-size: 0.93rem;
   color: var(--grey-1);

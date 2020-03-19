@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import '_styles/styles.css'
 
 import NavBar from '_molecules/nav-bar'
@@ -24,22 +25,24 @@ class Homepage extends React.Component {
     }
   }
 
-  buildNews = (position, theme) => (
-    <News
-      key={position}
-      tag={this.state.articles[position].subject.name}
-      button="Read More"
-      title={this.state.articles[position].title}
-      authorName={this.state.articles[position].author.name}
-      authorImage={this.state.articles[position].author.picture}
-      text={this.state.articles[position].text}
-      image={this.state.articles[position].hero_image}
-      theme={theme}
-    />
-  )
+  componentDidMount() {
+    this.getArticles()
+  }
+
+  componentDidUpdate(prevProps) {
+    const {
+      match: { params },
+    } = this.props
+    if (params.subject !== prevProps.match.params.subject) {
+      this.getArticles()
+    }
+  }
 
   getArticles() {
-    const subject = this.props.match.params.subject || ''
+    const {
+      match: { params },
+    } = this.props
+    const subject = params.subject || ''
     this.setState({ isLoading: true })
     http
       .get(`articles/${subject}`)
@@ -50,39 +53,48 @@ class Homepage extends React.Component {
           1000
         )
       )
-      .catch(error => this.setState({ isLoading: false, hasError: true, articles: [] }))
+      .catch(() => this.setState({ isLoading: false, hasError: true, articles: [] }))
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.match.params.subject !== prevProps.match.params.subject) {
-      this.getArticles()
-    }
-  }
-
-  componentDidMount() {
-    this.getArticles()
+  buildNews = (position, theme) => {
+    const { articles } = this.state
+    const { subject, title, author, text } = articles[position]
+    const { heroImage } = articles[position].hero_image
+    return (
+      <News
+        key={position}
+        tag={subject.name}
+        button="Read More"
+        title={title}
+        authorName={author.name}
+        authorImage={author.picture}
+        text={text}
+        image={heroImage}
+        theme={theme}
+      />
+    )
   }
 
   buildContent = () => {
-    if (this.state.hasError)
-      return <Message theme={MessageTheme.ERROR}>Something went wrong!</Message>
-    if (this.state.isLoading) return <Loader>Loading</Loader>
-    if (this.state.articles.length == 0)
+    const { hasError, isLoading, articles } = this.state
+    if (hasError) return <Message theme={MessageTheme.ERROR}>Something went wrong!</Message>
+    if (isLoading) return <Loader>Loading</Loader>
+    if (articles.length === 0)
       return <Message theme={MessageTheme.WARNING}>Theres is no news to display!</Message>
     return (
       <div className={view.default}>
         <div className={view.navbar} />
         <div className={view.featured}>
-          {FeaturedNews.map(i => this.state.articles[i] && this.buildNews(i, NewsTheme.FEATURED))}
+          {FeaturedNews.map(i => articles[i] && this.buildNews(i, NewsTheme.FEATURED))}
         </div>
         <div className={view.headlines}>
-          {HeadlineNews.map(i => this.state.articles[i] && this.buildNews(i, NewsTheme.HEADLINE))}
+          {HeadlineNews.map(i => articles[i] && this.buildNews(i, NewsTheme.HEADLINE))}
         </div>
         <div className={view.divider}>
           <Divider />
         </div>
         <div className={view.defaults}>
-          {DefaultNews.map(i => this.state.articles[i] && this.buildNews(i, NewsTheme.DEFAULT))}
+          {DefaultNews.map(i => articles[i] && this.buildNews(i, NewsTheme.DEFAULT))}
         </div>
       </div>
     )
@@ -96,6 +108,14 @@ class Homepage extends React.Component {
       </>
     )
   }
+}
+
+Homepage.propTypes = {
+  match: PropTypes.objectOf(PropTypes.object),
+}
+
+Homepage.defaultProps = {
+  match: PropTypes.objectOf(PropTypes.object),
 }
 
 export default Homepage

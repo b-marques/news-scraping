@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import styles from './styles.css'
 
@@ -15,9 +16,12 @@ const Loader = props => {
   )
 }
 
+Loader.propTypes = {
+  className: PropTypes.string,
+}
+
 Loader.defaultProps = {
   className: '',
-  children: '',
 }
 
 export default Loader

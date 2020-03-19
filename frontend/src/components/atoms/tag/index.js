@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import styles from './styles.css'
 
@@ -15,6 +16,12 @@ const Tag = props => {
   const { children, theme, className } = props
   const classProps = `${styles.tag} ${styles[theme]} ${className}`
   return <span className={classProps}>{children}</span>
+}
+
+Tag.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  theme: PropTypes.string,
 }
 
 Tag.defaultProps = {

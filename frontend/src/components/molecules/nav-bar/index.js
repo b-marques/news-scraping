@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 import NavItem from '_atoms/nav-item'
 import Logo from '_atoms/logo'
@@ -13,6 +14,14 @@ const NavBar = props => {
   const [isLargeScreen, setIsLargeScreen] = useState(false)
   const classProps = `${styles['nav-bar']} ${className}`
 
+  const handleMediaQueryChange = mediaQuery => {
+    if (mediaQuery.matches) {
+      setIsLargeScreen(true)
+    } else {
+      setIsLargeScreen(false)
+    }
+  }
+
   /* Reset navitems visibility after resize */
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 992px)')
@@ -23,14 +32,6 @@ const NavBar = props => {
       mediaQuery.removeListener(handleMediaQueryChange)
     }
   }, [])
-
-  const handleMediaQueryChange = mediaQuery => {
-    if (mediaQuery.matches) {
-      setIsLargeScreen(true)
-    } else {
-      setIsLargeScreen(false)
-    }
-  }
 
   const handleClick = subject => {
     setActive(subject)
@@ -63,9 +64,12 @@ const NavBar = props => {
   )
 }
 
+NavBar.propTypes = {
+  className: PropTypes.string,
+}
+
 NavBar.defaultProps = {
   className: '',
-  children: '',
 }
 
 export default NavBar

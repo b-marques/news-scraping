@@ -1,5 +1,5 @@
 .text {
-  font-family: "OpenSans", var(--base-font-family);
+  font-family: "OpenSans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: var(--grey-2);

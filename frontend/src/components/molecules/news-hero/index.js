@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import NewsHeroImage from '_atoms/news-hero-image'
 import Button, { ButtonSize } from '_atoms/button'
@@ -15,14 +16,14 @@ const NewsHero = props => {
   const classProps = `${styles['news-hero']} ${className}`
   return (
     <div className={classProps}>
-      {theme == NewsHeroTheme.FEATURED && (
+      {theme === NewsHeroTheme.FEATURED && (
         <>
           <NewsHeroImage image={newsHeroImage}>
             <Button size={ButtonSize.LARGE}>{button}</Button>
           </NewsHeroImage>
         </>
       )}
-      {theme == NewsHeroTheme.DEFAULT && (
+      {theme === NewsHeroTheme.DEFAULT && (
         <>
           <NewsHeroImage image={newsHeroImage}>
             <Button size={ButtonSize.MEDIUM}>{button}</Button>
@@ -33,9 +34,15 @@ const NewsHero = props => {
   )
 }
 
+NewsHero.propTypes = {
+  className: PropTypes.string,
+  theme: PropTypes.string,
+  newsHeroImage: PropTypes.string,
+  button: PropTypes.string,
+}
+
 NewsHero.defaultProps = {
   className: '',
-  children: '',
   theme: NewsHeroTheme.DEFAULT,
   newsHeroImage: '',
   button: '',

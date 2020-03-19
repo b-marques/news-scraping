@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import styles from './styles.css'
 
@@ -15,6 +16,13 @@ const AuthorImage = props => {
       {children}
     </div>
   )
+}
+
+AuthorImage.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  image: PropTypes.string,
+  size: PropTypes.string,
 }
 
 AuthorImage.defaultProps = {

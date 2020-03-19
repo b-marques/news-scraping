@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Tag from '_atoms/tag'
 import NewsHero, { NewsHeroTheme } from '_molecules/news-hero'
@@ -15,75 +16,87 @@ export const NewsTheme = {
 }
 
 const News = props => {
-  const classProps = `${props.className} ${styles[props.theme]}`
+  const { image, button, theme, className, tag, title, authorImage, authorName, text } = props
+  const { classProps } = `${className} ${styles[theme]}`
   return (
     <div className={classProps}>
-      <Tag className={styles.tag} theme={props.tag}>
-        {props.tag}
+      <Tag className={styles.tag} theme={tag}>
+        {tag}
       </Tag>
-      {props.theme == NewsTheme.FEATURED && (
+      {theme === NewsTheme.FEATURED && (
         <>
           <NewsHero
             className={styles.heroimage}
-            newsHeroImage={props.image}
-            button={props.button}
+            newsHeroImage={image}
+            button={button}
             theme={NewsHeroTheme.FEATURED}
           />
           <Title className={styles.title} size={TitleSize.LARGE}>
-            {props.title}
+            {title}
           </Title>
           <Author
             className={styles.author}
-            authorImage={props.authorImage}
-            authorName={props.authorName}
+            authorImage={authorImage}
+            authorName={authorName}
             theme={AuthorTheme.FEATURED}
           />
         </>
       )}
-      {props.theme == NewsTheme.HEADLINE && (
+      {theme === NewsTheme.HEADLINE && (
         <>
           <NewsHero
             className={styles.heroimage}
-            newsHeroImage={props.image}
-            button={props.button}
+            newsHeroImage={image}
+            button={button}
             theme={NewsHeroTheme.DEFAULT}
           />
-          <Title className={styles.title}>{props.title}</Title>
+          <Title className={styles.title}>{title}</Title>
           <Author
             className={styles.author}
-            authorImage={props.authorImage}
-            authorName={props.authorName}
+            authorImage={authorImage}
+            authorName={authorName}
             theme={AuthorTheme.DEFAULT}
           />
         </>
       )}
-      {props.theme == NewsTheme.DEFAULT && (
+      {theme === NewsTheme.DEFAULT && (
         <>
-          <Title className={styles.title}>{props.title}</Title>
+          <Title className={styles.title}>{title}</Title>
           <Author
             className={styles.author}
-            authorImage={props.authorImage}
-            authorName={props.authorName}
+            authorImage={authorImage}
+            authorName={authorName}
             theme={AuthorTheme.DEFAULT}
           />
         </>
       )}
-      <Text className={styles.text}>{props.text}</Text>
+      <Text className={styles.text}>{text}</Text>
     </div>
   )
 }
 
+News.propTypes = {
+  className: PropTypes.string,
+  theme: PropTypes.string,
+  tag: PropTypes.string,
+  button: PropTypes.string,
+  title: PropTypes.string,
+  authorImage: PropTypes.string,
+  authorName: PropTypes.string,
+  text: PropTypes.string,
+  image: PropTypes.string,
+}
+
 News.defaultProps = {
   className: '',
-  children: '',
   theme: NewsTheme.DEFAULT,
   tag: '',
-  newsHeroImage: '',
   button: '',
   title: '',
   authorImage: '',
   authorName: '',
   text: '',
+  image: '',
 }
 
 export default News

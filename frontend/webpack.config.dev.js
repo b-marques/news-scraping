@@ -20,5 +20,6 @@ module.exports = merge(baseConfig, {
     contentBase: path.join(__dirname, 'dist'),
     compress: false,
     port: 4000,
+    historyApiFallback: true,
   },
 })

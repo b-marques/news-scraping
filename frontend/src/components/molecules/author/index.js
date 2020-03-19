@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import AuthorName from '_atoms/author-name'
 import AuthorImage, { AuthorImageSize } from '_atoms/author-image'
@@ -15,13 +16,13 @@ const Author = props => {
   const classProps = `${styles.author} ${className}`
   return (
     <div className={classProps}>
-      {theme == AuthorTheme.FEATURED && (
+      {theme === AuthorTheme.FEATURED && (
         <>
           <AuthorImage image={authorImage} size={AuthorImageSize.LARGE} />
           <AuthorName>{authorName}</AuthorName>
         </>
       )}
-      {theme == AuthorTheme.DEFAULT && (
+      {theme === AuthorTheme.DEFAULT && (
         <>
           <AuthorImage image={authorImage} size={AuthorImageSize.MEDIUM} />
           <AuthorName>{authorName}</AuthorName>
@@ -31,9 +32,15 @@ const Author = props => {
   )
 }
 
+Author.propTypes = {
+  className: PropTypes.string,
+  theme: PropTypes.string,
+  authorName: PropTypes.string,
+  authorImage: PropTypes.string,
+}
+
 Author.defaultProps = {
   className: '',
-  children: '',
   theme: AuthorTheme.DEFAULT,
   authorName: '',
   authorImage: '',

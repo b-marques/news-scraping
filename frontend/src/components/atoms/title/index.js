@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import styles from './styles.css'
 
@@ -13,10 +14,16 @@ const Title = props => {
   return <h1 className={classProps}>{children}</h1>
 }
 
+Title.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  size: PropTypes.string,
+}
+
 Title.defaultProps = {
-  size: TitleSize.MEDIUM,
   className: '',
   children: '',
+  size: TitleSize.MEDIUM,
 }
 
 export default Title

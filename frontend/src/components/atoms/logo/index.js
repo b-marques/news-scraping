@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import logo from '_images/logo.png'
 import logo2x from '_images/logo@2x.png'
@@ -17,9 +18,13 @@ const Logo = props => {
   const classProps = `${styles.logo} ${className}`
   return (
     <a href="/" className={classProps}>
-      <img src={isRetina(logo, logo2x)} />
+      <img alt="logo" src={isRetina(logo, logo2x)} />
     </a>
   )
+}
+
+Logo.propTypes = {
+  className: PropTypes.string,
 }
 
 Logo.defaultProps = {
