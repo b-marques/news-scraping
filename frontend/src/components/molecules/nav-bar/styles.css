@@ -6,7 +6,7 @@
   grid-template:
     ".  navbutton . logo ." 56px
     ".  navitems  navitems navitems ." auto
-    / 6.5% auto 37.8% auto 47.1%;
+    / 6.5% 24px 1fr 45px 1.2fr;
 
   @media (--lg-viewport) {
     height: 100%;
