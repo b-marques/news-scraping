@@ -1,3 +1,6 @@
+// Author : danilowoz
+// Fonte: https://github.com/danilowoz/react-atomic-design
+
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
