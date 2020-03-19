@@ -111,11 +111,11 @@ class Homepage extends React.Component {
 }
 
 Homepage.propTypes = {
-  match: PropTypes.objectOf(PropTypes.object),
+  match: PropTypes.instanceOf(Object),
 }
 
 Homepage.defaultProps = {
-  match: PropTypes.objectOf(PropTypes.object),
+  match: {},
 }
 
 export default Homepage

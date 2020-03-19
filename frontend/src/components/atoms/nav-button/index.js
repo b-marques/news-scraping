@@ -17,9 +17,9 @@ const NavButton = props => {
   const { className, onClick } = props
   const classProps = `${styles['nav-button']} ${className}`
   return (
-    <icon className={classProps} onClick={onClick}>
+    <button className={classProps} onClick={onClick} type="button">
       <img src={isRetina(navButton, navButton2x)} alt="Nav Buton" />
-    </icon>
+    </button>
   )
 }
 

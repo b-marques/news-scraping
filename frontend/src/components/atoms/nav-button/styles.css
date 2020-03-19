@@ -1,6 +1,7 @@
 .nav-button {
-  width: 24px;
-  height: 19px;
+  background: none;
+  border: none;
+  outline: none;
 
   @media (--lg-viewport) {
     display: none;
