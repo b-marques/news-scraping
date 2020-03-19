@@ -15,10 +15,10 @@ const isRetina = (first, second) => {
 
 const Logo = props => {
   const { className } = props
-  const classProps = `${styles.logo} ${className}`
+  const classProps = `${className} ${styles.image}`
   return (
-    <a href="/" className={classProps}>
-      <img alt="logo" src={isRetina(logo, logo2x)} />
+    <a className={classProps} href="/">
+      <img className={styles.image} alt="logo" src={isRetina(logo, logo2x)} />
     </a>
   )
 }
