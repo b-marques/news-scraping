@@ -8,7 +8,7 @@ class Article(models.Model):
     slug = models.SlugField(max_length=255)
     author = models.ForeignKey(Author, on_delete=models.PROTECT)
     subject = models.ForeignKey(Subject, on_delete=models.PROTECT)
-    hero_image = models.ImageField(upload_to="src/media/hero_images/", max_length=255)
+    hero_image = models.ImageField(upload_to="media/hero_images/", max_length=255)
     publish_date = models.DateTimeField()
     text = models.TextField()
 
