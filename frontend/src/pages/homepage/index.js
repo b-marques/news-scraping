@@ -13,6 +13,7 @@ import { http } from '_utils/http'
 const FeaturedNews = [0]
 const HeadlineNews = [1, 2]
 const DefaultNews = [3, 4, 5]
+const { MEDIA_URL } = process.env
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -59,7 +60,8 @@ class Homepage extends React.Component {
   buildNews = (position, theme) => {
     const { articles } = this.state
     const { subject, title, author, text } = articles[position]
-    const { heroImage } = articles[position].hero_image
+    const heroImage = articles[position].hero_image
+
     return (
       <News
         key={position}
@@ -67,9 +69,9 @@ class Homepage extends React.Component {
         button="Read More"
         title={title}
         authorName={author.name}
-        authorImage={author.picture}
+        authorImage={MEDIA_URL + author.picture}
         text={text}
-        image={heroImage}
+        image={MEDIA_URL + heroImage}
         theme={theme}
       />
     )
