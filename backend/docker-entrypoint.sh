@@ -14,6 +14,7 @@ fi
 python src/manage.py migrate                  # Apply database migrations
 
 if [ "$ENV" = "development" ] ; then
+    python src/manage.py process_tasks &
     python src/manage.py runserver 0.0.0.0:8000
 else
     python src/manage.py collectstatic --noinput  # Collect static files
@@ -23,6 +24,9 @@ else
     touch /srv/logs/gunicorn.log
     touch /srv/logs/access.log
     tail -n 0 -f /srv/logs/*.log &
+
+    # Start crawling news
+    python src/manage.py process_tasks &
 
     # Start Gunicorn processes
     echo Starting Gunicorn

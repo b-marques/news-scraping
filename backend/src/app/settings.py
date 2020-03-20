@@ -41,6 +41,7 @@ THIRD_PARTY_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "versatileimagefield",
+    "background_task",
 ]
 
 PROJECT_APPS = ["users", "subjects", "authors", "articles", "api"]
@@ -123,6 +124,7 @@ if DEBUG:
     MEDIA_ROOT = "uploads/"
     MEDIA_URL = "/uploads/"
 
+
 # Email settings
 
 if DEBUG:
@@ -141,6 +143,7 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.NamespaceVersioning",
     "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
+    "UPLOADED_FILES_USE_URL": False,
 }
 
 # Auth
