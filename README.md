@@ -1,4 +1,4 @@
-# bruno-marques-fullstack
+# bruno-marques-fullstack v1.0
 
 Code related to the junior challenge at Cheesecake Labs. Structured as:
 
