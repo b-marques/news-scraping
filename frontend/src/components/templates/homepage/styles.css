@@ -1,7 +1,6 @@
 .default {
   display: grid;
   grid-template:
-    "header header    header    header" 56px
     ".      .         .         .     " 55px
     ".      featured  featured  .     " auto
     ".      .         .         .     " 60px
@@ -13,7 +12,6 @@
 
   @media (--md-viewport) {
     grid-template:
-      "header header    header    header" 56px
       ".      .         .         .     " 55px
       ".      featured  featured  .     " auto
       ".      .         .         .     " 60px
@@ -26,7 +24,6 @@
 
   @media (--xl-viewport) {
     grid-template:
-      "header  header   header   header    header    header    header" 56px
       ".       .        .        .         .         .         .     " 76px
       ".       featured .        headlines headlines headlines .     " auto
       ".       .        .        .         .         .         .     " 26px
