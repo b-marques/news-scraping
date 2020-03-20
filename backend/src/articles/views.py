@@ -23,9 +23,9 @@ class BySubjectArticleList(generics.ListAPIView):
     name = "subject-article-list"
 
     def get_queryset(self):
-        if not Subject.objects.filter(name=self.kwargs["subject"]).exists():
+        if not Subject.objects.filter(name=self.kwargs["subject"]):
             return Article.objects.none()
-        self.subject = Subject.objects.filter(name=self.kwargs["subject"])
+        self.subject = Subject.objects.get(name=self.kwargs["subject"])
         return Article.objects.filter(subject=self.subject).order_by("-publish_date")
 
 
