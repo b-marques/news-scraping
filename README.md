@@ -16,9 +16,9 @@ The core is based in `Django` and `Django REST Framework` communicating with a `
 
 Django and gunicorn will run inside a container named `backend`, listening at port 8000 exposed only locally inside docker network.
 
-While the nginx web server will run inside a container named `nginx`, and will listen in port 8080 in its container and binded to the host (Amazon EC2 machine) port 8080.
+The nginx web server will run inside a container named `nginx`, and will listen in port 8080 in its container and binded to the host (Amazon EC2 machine) port 8080. It is also responsile for serving static and media files.
 
-<!--- There is also a `background_task` running a `crawler` builded with `scrapy` to crawl news from [TechCrunch](https://techcrunch.com) and [FoxNews](https://foxnews.com) periodically.-->
+There is also a `background_task` running a `crawler` builded with `scrapy` to crawl news from [TechCrunch](https://techcrunch.com) and [FoxNews](https://foxnews.com) periodically.
 
 ## Frontend
 
@@ -47,14 +47,14 @@ Set API_URL=http://localhost:8000/v1/ in frontend/.env
 
 mv backend/src/app/local.example.env backend/src/app/local.env
 
-Set DJANGO_DEBUG=True, ENV=development and CORS_ORIGIN_WHITELIST=http://localhost:4000 in backend/src/app/local.env
+Set DJANGO_DEBUG=True, ENV=development and configure database connection.
 
 docker-compose -f backend/docker-compose.yml build
-docker-compose -f backend/docker-compose.yml run
+docker-compose -f backend/docker-compose.yml up
 
-Open another terminal and navigate to bruno-marques-fullstack folder and run
+Open another terminal and navigate to bruno-marques-fullstack/fronted folder and run
 
-yarn --cwd frontend dev
+yarn dev
 ```
 
 Done.
@@ -88,4 +88,6 @@ docker run -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres
 
 and set:
 
-`DATABASE_URL=postgres://postgres:postgres@localhost:5432/app`
+`DATABASE_URL=postgres://postgres:postgres@LAN_IP:5432/app`
+
+change LAN_IP by your local ip.
