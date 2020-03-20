@@ -17,7 +17,7 @@ export const NewsTheme = {
 
 const News = props => {
   const { image, button, theme, className, tag, title, authorImage, authorName, text } = props
-  const { classProps } = `${className} ${styles[theme]}`
+  const classProps = `${className} ${styles[theme]}`
   return (
     <div className={classProps}>
       <Tag className={styles.tag} theme={tag}>
