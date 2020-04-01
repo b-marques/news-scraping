@@ -82,8 +82,7 @@ chmod +x deploy.sh
 If you want to run a local database for test porpouses, you can run
 
 ```
-docker run -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres
- -e POSTGRES_DB=app -p 5432:5432 library/postgres
+docker run -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=app -p 5432:5432 library/postgres
 ```
 
 and set:
