@@ -1,5 +1,5 @@
 # Stage 1 - the build process
-FROM node:10.19 as build-deps
+FROM node:10.19-buster-slim as build-deps
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 
