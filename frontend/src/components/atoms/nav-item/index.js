@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+
+import Link from '_atoms/link'
 
 import styles from './styles.css'
 
@@ -10,7 +11,7 @@ const NavItem = props => {
     activeItem === children ? styles.active : ''
   }`
   return (
-    <Link className={classProps} to={`/${children}`} onClick={() => onClick(children)}>
+    <Link className={classProps} href={`/${children}`} onClick={() => onClick(children)}>
       {children}
     </Link>
   )
