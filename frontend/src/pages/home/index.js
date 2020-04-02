@@ -9,6 +9,7 @@ import Message, { MessageTheme } from '_atoms/message'
 import Loader from '_atoms/loader'
 import view from '_templates/homepage/styles.css'
 import { http } from '_utils/http'
+import navItems from '_utils/navItems'
 
 const FeaturedNews = [0]
 const HeadlineNews = [1, 2]
@@ -105,7 +106,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <>
-        <NavBar items={['politics', 'business', 'tech', 'science', 'sports']} />
+        <NavBar items={navItems} />
         {this.buildContent()}
       </>
     )
