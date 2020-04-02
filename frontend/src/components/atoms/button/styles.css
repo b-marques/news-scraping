@@ -1,0 +1,28 @@
+.button {
+  background: rgba(0, 0, 0, 0.5);
+  border: 0.07rem solid var(--white);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+}
+
+/* Size */
+.medium {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0;
+  line-height: 1.21rem;
+}
+
+.large {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0;
+  line-height: 1.21rem;
+
+  @media (--md-viewport) {
+    font-size: 1.29rem;
+    line-height: 1.57rem;
+  }
+}

@@ -1,0 +1,33 @@
+.tag {
+  font-family: Lato, sans-serif;
+  font-size: 0.71rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 0.86rem;
+}
+
+/* Theme */
+.default {
+  color: var(--black);
+}
+
+.politics {
+  color: var(--politics);
+}
+
+.business {
+  color: var(--business);
+}
+
+.tech {
+  color: var(--tech);
+}
+
+.science {
+  color: var(--science);
+}
+
+.sports {
+  color: var(--sports);
+}
