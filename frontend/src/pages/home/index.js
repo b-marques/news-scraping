@@ -15,7 +15,7 @@ const HeadlineNews = [1, 2]
 const DefaultNews = [3, 4, 5]
 const { MEDIA_URL } = process.env
 
-class Homepage extends React.Component {
+class HomePage extends React.Component {
   constructor(props) {
     super(props)
 
@@ -105,19 +105,19 @@ class Homepage extends React.Component {
   render() {
     return (
       <>
-        <NavBar />
+        <NavBar items={['politics', 'business', 'tech', 'science', 'sports']} />
         {this.buildContent()}
       </>
     )
   }
 }
 
-Homepage.propTypes = {
+HomePage.propTypes = {
   match: PropTypes.instanceOf(Object),
 }
 
-Homepage.defaultProps = {
+HomePage.defaultProps = {
   match: {},
 }
 
-export default Homepage
+export default HomePage
