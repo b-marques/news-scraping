@@ -16,20 +16,11 @@ const NewsHero = props => {
   const classProps = `${styles['news-hero']} ${className}`
   return (
     <div className={classProps}>
-      {theme === NewsHeroTheme.FEATURED && (
-        <>
-          <NewsHeroImage image={newsHeroImage}>
-            <Button size={ButtonSize.LARGE}>{button}</Button>
-          </NewsHeroImage>
-        </>
-      )}
-      {theme === NewsHeroTheme.DEFAULT && (
-        <>
-          <NewsHeroImage image={newsHeroImage}>
-            <Button size={ButtonSize.MEDIUM}>{button}</Button>
-          </NewsHeroImage>
-        </>
-      )}
+      <NewsHeroImage image={newsHeroImage}>
+        <Button size={theme === NewsHeroTheme.FEATURED ? ButtonSize.LARGE : ButtonSize.MEDIUM}>
+          {button}
+        </Button>
+      </NewsHeroImage>
     </div>
   )
 }
