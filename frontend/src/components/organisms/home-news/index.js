@@ -9,13 +9,13 @@ import Text from '_atoms/text'
 
 import styles from './styles.css'
 
-export const NewsTheme = {
+export const HomeNewsTheme = {
   FEATURED: 'featured',
   HEADLINE: 'headline',
   DEFAULT: 'default',
 }
 
-const News = props => {
+const HomeNews = props => {
   const { image, button, theme, className, tag, title, authorImage, authorName, text } = props
   const classProps = `${className} ${styles[theme]}`
   return (
@@ -23,7 +23,7 @@ const News = props => {
       <Tag className={styles.tag} theme={tag}>
         {tag}
       </Tag>
-      {theme === NewsTheme.FEATURED && (
+      {theme === HomeNewsTheme.FEATURED && (
         <>
           <NewsHero
             className={styles.heroimage}
@@ -42,7 +42,7 @@ const News = props => {
           />
         </>
       )}
-      {theme === NewsTheme.HEADLINE && (
+      {theme === HomeNewsTheme.HEADLINE && (
         <>
           <NewsHero
             className={styles.heroimage}
@@ -59,7 +59,7 @@ const News = props => {
           />
         </>
       )}
-      {theme === NewsTheme.DEFAULT && (
+      {theme === HomeNewsTheme.DEFAULT && (
         <>
           <Title className={styles.title}>{title}</Title>
           <Author
@@ -75,7 +75,7 @@ const News = props => {
   )
 }
 
-News.propTypes = {
+HomeNews.propTypes = {
   className: PropTypes.string,
   theme: PropTypes.string,
   tag: PropTypes.string,
@@ -87,9 +87,9 @@ News.propTypes = {
   image: PropTypes.string,
 }
 
-News.defaultProps = {
+HomeNews.defaultProps = {
   className: '',
-  theme: NewsTheme.DEFAULT,
+  theme: HomeNewsTheme.DEFAULT,
   tag: '',
   button: '',
   title: '',
@@ -99,4 +99,4 @@ News.defaultProps = {
   image: '',
 }
 
-export default News
+export default HomeNews
