@@ -9,6 +9,7 @@ import Loader from '_atoms/loader'
 import view from '_templates/home/styles.css'
 import { http } from '_utils/http'
 import navItems from '_utils/navItems'
+import Link from '_atoms/link'
 
 const FeaturedNews = [0]
 const HeadlineNews = [1, 2, 3]
@@ -60,21 +61,22 @@ class HomePage extends React.Component {
 
   buildNews = (position, theme) => {
     const { articles } = this.state
-    const { subject, title, author, text } = articles[position]
+    const { subject, title, author, text, id, slug } = articles[position]
     const heroImage = articles[position].hero_image
 
     return (
-      <HomeNews
-        key={position}
-        tag={subject.name}
-        button="Read More"
-        title={title}
-        authorName={author.name}
-        authorImage={MEDIA_URL + author.picture}
-        text={text}
-        image={MEDIA_URL + heroImage}
-        theme={theme}
-      />
+      <Link key={position} href={`/article/${id}/${slug}`}>
+        <HomeNews
+          tag={subject.name}
+          button="Read More"
+          title={title}
+          authorName={author.name}
+          authorImage={MEDIA_URL + author.picture}
+          text={text}
+          image={MEDIA_URL + heroImage}
+          theme={theme}
+        />
+      </Link>
     )
   }
 

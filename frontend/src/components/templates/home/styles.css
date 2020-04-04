@@ -59,7 +59,7 @@
   margin-bottom: 10px;
 }
 
-.headlines2 > div:nth-child(n) {
+.headlines2 > a:nth-child(n) {
   margin-bottom: 10px;
 
   @media (--md-viewport) {
@@ -67,11 +67,11 @@
   }
 }
 
-.headlines > div:nth-child(n) {
+.headlines > a:nth-child(n) {
   margin-bottom: 10px;
 }
 
-.defaults > div:nth-child(n) {
+.defaults > a:nth-child(n) {
   flex: 0 calc(50% - 5px);
   margin-bottom: 30px;
 
