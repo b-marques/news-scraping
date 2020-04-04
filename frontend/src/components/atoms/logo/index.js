@@ -18,7 +18,7 @@ const Logo = props => {
   const classProps = `${className} ${styles.image}`
   return (
     <a className={classProps} href="/">
-      <img className={styles.image} alt="logo" src={isRetina(logo, logo2x)} />
+      <img className={styles.image} alt="logo" src={`/${isRetina(logo, logo2x)}`} />
     </a>
   )
 }
