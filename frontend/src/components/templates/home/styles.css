@@ -1,111 +1,81 @@
 .default {
   display: grid;
   grid-template:
-    ".      .         .         .     " 55px
-    ".      featured  featured  .     " auto
-    ".      .         .         .     " 60px
-    ".      headlines headlines .     " auto
-    ".      .         .         .     " 60px
-    ".      defaults  defaults  .     " auto
-    ".      .         .         .     " 60px
-    / 5% auto auto 5%;
+    ".      .          .     " 4vh
+    ".      featured   .     " auto
+    ".      headlines2 .     " auto
+    ".      headlines  .     " auto
+    ".      .          .     " 50px
+    ".      defaults   .     " auto
+    / 5% auto 5%;
 
   @media (--md-viewport) {
+    grid-column-gap: 10px;
     grid-template:
-      ".      .         .         .     " 55px
-      ".      featured  featured  .     " auto
-      ".      .         .         .     " 60px
-      ".      headlines headlines .     " auto
-      ".      .         .         .     " 60px
-      ".      defaults  defaults  .     " auto
-      ".      .         .         .     " 60px
-      / 5% auto auto 5%;
-  }
-
-  @media (--xl-viewport) {
-    grid-template:
-      ".       .        .        .         .         .         .     " 76px
-      ".       featured .        headlines headlines headlines .     " auto
-      ".       .        .        .         .         .         .     " 26px
-      ".       divider  divider  divider   divider   divider   .     " 1px
-      ".       .        .        .         .         .         .     " 26px
-      ".       defaults defaults defaults  defaults  defaults  .     " auto
-      ".       .        .        .         .         .         .     " 26px
-      / 9.4% 39.6% 2.1% 18.7% 2.1% 18.7% 9.4%;
+      ". .        .        .         .     " 4vh
+      ". featured featured headlines .     " auto
+      ". featured featured headlines .     " auto
+      ". headlines2 headlines2 headlines . " auto
+      ". .        .        .         .     " 100px
+      ". defaults defaults defaults  .     " auto
+      ". .        .        .         .     " 26px
+      / 9% 26% 26% 1fr 9%;
   }
 }
 
 .headlines {
   grid-area: headlines;
-  display: grid;
-  grid-column-gap: 3.8%;
-  grid-row-gap: 60px;
-  grid-template:
-    "headline " auto
-    "headline2" auto
-    / 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.headlines2 {
+  grid-area: headlines2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media (--md-viewport) {
-    grid-template:
-      "headline headline2" auto
-      / 1fr 1fr;
+    flex-direction: row;
   }
 }
 
 .defaults {
   grid-area: defaults;
-  display: grid;
-  grid-column-gap: 3.8%;
-  grid-row-gap: 60px;
-  grid-template:
-    "defaults1" auto
-    "defaults2" auto
-    "defaults3" auto
-    / 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
 
   @media (--md-viewport) {
-    grid-template:
-      "defaults1 defaults2" auto
-      "defaults3 .        " auto
-      / 1fr 1fr;
+    flex-wrap: wrap;
+    flex-direction: row;
   }
-
-  @media (--xl-viewport) {
-    grid-column-gap: 2.1%;
-    grid-template:
-      "defaults1 defaults2 defaults3" auto
-      / 1fr 1fr 1fr;
-  }
-}
-
-.navbar {
-  grid-area: header;
 }
 
 .featured {
   grid-area: featured;
+  margin-bottom: 10px;
 }
 
-.headlines:nth-child(1) {
-  grid-area: headline;
+.headlines2 > div:nth-child(n) {
+  margin-bottom: 10px;
+
+  @media (--md-viewport) {
+    flex: 0 calc(50% - 5px);
+  }
 }
 
-.headlines:nth-child(2) {
-  grid-area: headline2;
+.headlines > div:nth-child(n) {
+  margin-bottom: 10px;
 }
 
-.divider {
-  grid-area: divider;
-}
+.defaults > div:nth-child(n) {
+  flex: 0 calc(50% - 5px);
+  margin-bottom: 30px;
 
-.defaults:nth-child(1) {
-  grid-area: defaults1;
-}
-
-.defaults:nth-child(2) {
-  grid-area: defaults2;
-}
-
-.defaults:nth-child(3) {
-  grid-area: defaults3;
+  @media (--md-viewport) {
+    margin-bottom: 50px;
+  }
 }

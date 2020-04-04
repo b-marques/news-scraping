@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 
 import Tag from '_atoms/tag'
 import NewsHero, { NewsHeroTheme } from '_molecules/news-hero'
-import Title, { TitleSize } from '_atoms/title'
-import Author, { AuthorTheme } from '_molecules/author'
+import Title from '_atoms/title'
 import Text from '_atoms/text'
 
 import styles from './styles.css'
@@ -16,61 +15,37 @@ export const HomeNewsTheme = {
 }
 
 const HomeNews = props => {
-  const { image, button, theme, className, tag, title, authorImage, authorName, text } = props
+  const { image, button, theme, className, tag, title, text } = props
   const classProps = `${className} ${styles[theme]}`
   return (
     <div className={classProps}>
-      <Tag className={styles.tag} theme={tag}>
-        {tag}
-      </Tag>
       {theme === HomeNewsTheme.FEATURED && (
-        <>
-          <NewsHero
-            className={styles.heroimage}
-            newsHeroImage={image}
-            button={button}
-            theme={NewsHeroTheme.FEATURED}
-          />
-          <Title className={styles.title} size={TitleSize.LARGE}>
-            {title}
-          </Title>
-          <Author
-            className={styles.author}
-            authorImage={authorImage}
-            authorName={authorName}
-            theme={AuthorTheme.FEATURED}
-          />
-        </>
+        <NewsHero
+          className={styles.heroimage}
+          newsHeroImage={image}
+          button={button}
+          theme={NewsHeroTheme.FEATURED}
+          tag={tag}
+          title={title}
+        />
       )}
       {theme === HomeNewsTheme.HEADLINE && (
-        <>
-          <NewsHero
-            className={styles.heroimage}
-            newsHeroImage={image}
-            button={button}
-            theme={NewsHeroTheme.DEFAULT}
-          />
-          <Title className={styles.title}>{title}</Title>
-          <Author
-            className={styles.author}
-            authorImage={authorImage}
-            authorName={authorName}
-            theme={AuthorTheme.DEFAULT}
-          />
-        </>
+        <NewsHero
+          className={styles.heroimage}
+          newsHeroImage={image}
+          button={button}
+          theme={NewsHeroTheme.DEFAULT}
+          tag={tag}
+          title={title}
+        />
       )}
       {theme === HomeNewsTheme.DEFAULT && (
         <>
+          <Tag theme={tag}>{tag}</Tag>
           <Title className={styles.title}>{title}</Title>
-          <Author
-            className={styles.author}
-            authorImage={authorImage}
-            authorName={authorName}
-            theme={AuthorTheme.DEFAULT}
-          />
+          <Text className={styles.text}>{text}</Text>
         </>
       )}
-      <Text className={styles.text}>{text}</Text>
     </div>
   )
 }
@@ -81,8 +56,6 @@ HomeNews.propTypes = {
   tag: PropTypes.string,
   button: PropTypes.string,
   title: PropTypes.string,
-  authorImage: PropTypes.string,
-  authorName: PropTypes.string,
   text: PropTypes.string,
   image: PropTypes.string,
 }
@@ -93,8 +66,6 @@ HomeNews.defaultProps = {
   tag: '',
   button: '',
   title: '',
-  authorImage: '',
-  authorName: '',
   text: '',
   image: '',
 }

@@ -2,7 +2,8 @@
   font-family: "OpenSans", sans-serif;
   font-size: 1rem;
   font-weight: 400;
-  color: var(--grey-2);
+  color: var(--dark-blue-50);
   letter-spacing: 0;
-  line-height: 1.36rem;
+  line-height: 1.3rem;
+  padding: 10px;
 }

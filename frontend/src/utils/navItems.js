@@ -1,3 +1,3 @@
-const items = ['politics', 'business', 'tech', 'science', 'sports']
+const items = ['business', 'politics', 'science', 'sports', 'tech']
 
 export default items

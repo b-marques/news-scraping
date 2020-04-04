@@ -25,10 +25,11 @@ p {
 
 html,
 body {
-  color: var(--type-body);
+  color: var(--black);
+  background: linear-gradient(90deg, var(--light-blue) 0%, var(--light-blue-50) 100%);
   font-family: var(--base-font-family);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: var(--base-font-lineheight);
   -webkit-font-smoothing: antialiased;
   width: 100%;

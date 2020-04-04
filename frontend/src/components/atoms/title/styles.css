@@ -2,21 +2,24 @@
   font-family: Roboto, sans-serif;
   font-weight: 400;
   letter-spacing: 0;
-  color: var(--black);
+  color: var(--white);
+  align-self: stretch;
+  background-color: var(--medium-blue-50);
+  padding: 10px;
 }
 
 /* Size */
 .medium {
-  font-size: 1.21rem;
+  font-size: 1.2rem;
   line-height: 1.5rem;
 }
 
 .large {
-  font-size: 1.21rem;
+  font-size: 1.2rem;
   line-height: 1.5rem;
 
   @media (--md-viewport) {
-    font-size: 2.07rem;
+    font-size: 2.1rem;
     line-height: 2.5rem;
   }
 }
