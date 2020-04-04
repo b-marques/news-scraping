@@ -1,0 +1,81 @@
+.default {
+  display: grid;
+  grid-template:
+    ".      .          .     " 4vh
+    ".      featured   .     " auto
+    ".      headlines2 .     " auto
+    ".      headlines  .     " auto
+    ".      .          .     " 50px
+    ".      defaults   .     " auto
+    / 5% auto 5%;
+
+  @media (--md-viewport) {
+    grid-column-gap: 10px;
+    grid-template:
+      ". .        .        .         .     " 4vh
+      ". featured featured headlines .     " auto
+      ". featured featured headlines .     " auto
+      ". headlines2 headlines2 headlines . " auto
+      ". .        .        .         .     " 100px
+      ". defaults defaults defaults  .     " auto
+      ". .        .        .         .     " 26px
+      / 9% 26% 26% 1fr 9%;
+  }
+}
+
+.headlines {
+  grid-area: headlines;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.headlines2 {
+  grid-area: headlines2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (--md-viewport) {
+    flex-direction: row;
+  }
+}
+
+.defaults {
+  grid-area: defaults;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+
+  @media (--md-viewport) {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+}
+
+.featured {
+  grid-area: featured;
+  margin-bottom: 10px;
+}
+
+.headlines2 > a:nth-child(n) {
+  margin-bottom: 10px;
+
+  @media (--md-viewport) {
+    flex: 0 calc(50% - 5px);
+  }
+}
+
+.headlines > a:nth-child(n) {
+  margin-bottom: 10px;
+}
+
+.defaults > a:nth-child(n) {
+  flex: 0 calc(50% - 5px);
+  margin-bottom: 30px;
+
+  @media (--md-viewport) {
+    margin-bottom: 50px;
+  }
+}

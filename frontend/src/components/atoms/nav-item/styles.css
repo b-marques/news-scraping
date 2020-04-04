@@ -1,12 +1,11 @@
 .nav-item {
-  font-family: Lato, sans-serif;
+  font-family: Roboto, sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  line-height: 1.21rem;
-  color: var(--black);
+  line-height: 1.2rem;
+  color: var(--dark-blue);
   text-transform: uppercase;
   padding: 15px 0;
-  text-decoration: none;
 }
 
 .active {

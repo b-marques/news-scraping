@@ -1,4 +1,6 @@
 .news-hero {
+  width: 100%;
+
   button {
     opacity: 0;
     transition: opacity 0.2s linear;
@@ -6,4 +8,8 @@
   &:hover button {
     opacity: 1;
   }
+}
+
+.tag {
+  align-self: flex-end;
 }

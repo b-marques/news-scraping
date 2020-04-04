@@ -2,21 +2,25 @@
   /*
    * Colors
    */
-  --politics: #d0021b;
-  --business: #bd10e0;
-  --tech: #4a90e2;
-  --science: #7cbb37;
-  --sports: #f5a623;
-  --type-body: #000;
+  --politics: orange;
+  --business: blue;
+  --tech: purple;
+  --science: red;
+  --sports: green;
   --black: #000;
   --white: #fff;
-  --grey-1: #808080;
-  --grey-2: #686868;
-  --grey-3: #e4e4e4;
-  --grey-4: #979797;
-  --info: #00b7ff;
-  --error: #d94847;
-  --warning: #febe00;
+  --white-50: #ffffff80;
+  --dark-blue: #1b262c;
+  --dark-blue-50: #1b262c80;
+  --medium-blue: #0f4c75;
+  --medium-blue-50: #0f4c7580;
+  --soft-blue: #3282b8;
+  --soft-blue-50: #3282b880;
+  --light-blue: #bbe1fa;
+  --light-blue-50: #bbe1fa80;
+  --info: var(--soft-blue);
+  --error: #c11729;
+  --warning: #fccf00;
 
   /*
    * Fonts

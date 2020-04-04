@@ -3,19 +3,21 @@ import PropTypes from 'prop-types'
 import '_styles/styles.css'
 
 import NavBar from '_molecules/nav-bar'
-import News, { NewsTheme } from '_organisms/news'
-import Divider from '_atoms/divider'
+import HomeNews, { HomeNewsTheme } from '_organisms/home-news'
 import Message, { MessageTheme } from '_atoms/message'
 import Loader from '_atoms/loader'
-import view from '_templates/homepage/styles.css'
+import view from '_templates/home/styles.css'
 import { http } from '_utils/http'
+import navItems from '_utils/navItems'
+import Link from '_atoms/link'
 
 const FeaturedNews = [0]
-const HeadlineNews = [1, 2]
-const DefaultNews = [3, 4, 5]
+const HeadlineNews = [1, 2, 3]
+const HeadlineNews2 = [4, 5]
+const DefaultNews = [6, 7, 8, 9]
 const { MEDIA_URL } = process.env
 
-class Homepage extends React.Component {
+class HomePage extends React.Component {
   constructor(props) {
     super(props)
 
@@ -59,21 +61,22 @@ class Homepage extends React.Component {
 
   buildNews = (position, theme) => {
     const { articles } = this.state
-    const { subject, title, author, text } = articles[position]
+    const { subject, title, author, text, id, slug } = articles[position]
     const heroImage = articles[position].hero_image
 
     return (
-      <News
-        key={position}
-        tag={subject.name}
-        button="Read More"
-        title={title}
-        authorName={author.name}
-        authorImage={MEDIA_URL + author.picture}
-        text={text}
-        image={MEDIA_URL + heroImage}
-        theme={theme}
-      />
+      <Link key={position} href={`/article/${id}/${slug}`}>
+        <HomeNews
+          tag={subject.name}
+          button="Read More"
+          title={title}
+          authorName={author.name}
+          authorImage={MEDIA_URL + author.picture}
+          text={text}
+          image={MEDIA_URL + heroImage}
+          theme={theme}
+        />
+      </Link>
     )
   }
 
@@ -87,16 +90,16 @@ class Homepage extends React.Component {
       <div className={view.default}>
         <div className={view.navbar} />
         <div className={view.featured}>
-          {FeaturedNews.map(i => articles[i] && this.buildNews(i, NewsTheme.FEATURED))}
+          {FeaturedNews.map(i => articles[i] && this.buildNews(i, HomeNewsTheme.FEATURED))}
         </div>
         <div className={view.headlines}>
-          {HeadlineNews.map(i => articles[i] && this.buildNews(i, NewsTheme.HEADLINE))}
+          {HeadlineNews.map(i => articles[i] && this.buildNews(i, HomeNewsTheme.HEADLINE))}
         </div>
-        <div className={view.divider}>
-          <Divider />
+        <div className={view.headlines2}>
+          {HeadlineNews2.map(i => articles[i] && this.buildNews(i, HomeNewsTheme.HEADLINE))}
         </div>
         <div className={view.defaults}>
-          {DefaultNews.map(i => articles[i] && this.buildNews(i, NewsTheme.DEFAULT))}
+          {DefaultNews.map(i => articles[i] && this.buildNews(i, HomeNewsTheme.DEFAULT))}
         </div>
       </div>
     )
@@ -105,19 +108,19 @@ class Homepage extends React.Component {
   render() {
     return (
       <>
-        <NavBar />
+        <NavBar items={navItems} />
         {this.buildContent()}
       </>
     )
   }
 }
 
-Homepage.propTypes = {
+HomePage.propTypes = {
   match: PropTypes.instanceOf(Object),
 }
 
-Homepage.defaultProps = {
+HomePage.defaultProps = {
   match: {},
 }
 
-export default Homepage
+export default HomePage

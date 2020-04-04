@@ -1,0 +1,42 @@
+.heroimage {
+  grid-area: heroimage;
+}
+
+.featured {
+  animation: fadeIn 1s linear;
+  display: flex;
+  height: 50vh;
+
+  @media (--md-viewport) {
+    height: 56vh;
+  }
+}
+
+.headline {
+  animation: fadeIn 1s linear;
+  display: flex;
+  height: calc(25vh - 5px);
+
+  @media (--md-viewport) {
+    height: calc(28vh - 5px);
+  }
+}
+
+.default {
+  animation: fadeIn 1s linear;
+  display: grid;
+  grid-template:
+    "tag   " 23px
+    "title " auto
+    "text  " 1fr
+    / auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
