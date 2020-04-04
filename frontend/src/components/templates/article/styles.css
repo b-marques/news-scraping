@@ -1,0 +1,28 @@
+.article-container {
+  display: grid;
+  grid-template:
+    ".      .       . " 4vh
+    ".   article    . " auto
+    ".      .       . " 4vh
+    / 5% auto 5%;
+
+  @media (--md-viewport) {
+    grid-template:
+      ".      .       . " 4vh
+      ".   article    . " auto
+      ".      .       . " 4vh
+      / 15% auto 15%;
+  }
+
+  @media (--lg-viewport) {
+    grid-template:
+      ".      .       . " 4vh
+      ".   article    . " auto
+      ".      .       . " 4vh
+      / 25% auto 25%;
+  }
+}
+
+.article {
+  grid-area: article;
+}
