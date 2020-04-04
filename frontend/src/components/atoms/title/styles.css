@@ -8,6 +8,11 @@
   padding: 10px;
 }
 
+.no-bg-color {
+  color: var(--medium-blue);
+  background-color: transparent;
+}
+
 /* Size */
 .medium {
   font-size: 1.2rem;
