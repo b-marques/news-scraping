@@ -2,13 +2,21 @@
   font-family: Roboto, sans-serif;
   font-weight: 400;
   letter-spacing: 0;
-  font-size: 4rem;
-  line-height: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
   color: var(--medium-blue);
+}
+
+.medium {
+  height: 4vh;
+  margin-bottom: 2vh;
+}
+
+.large {
+  height: 80vh;
+  font-size: 4rem;
+  line-height: 4.5rem;
 }
 
 @keyframes blink {
