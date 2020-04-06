@@ -1,4 +1,4 @@
-# bruno-marques-fullstack v1.0
+# bruno-marques-fullstack v1.1
 
 This is a site, with news automatic scraped from other sites.
 
