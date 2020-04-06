@@ -1,20 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 import '_styles/styles.css'
 
 import NavBar from '_molecules/nav-bar'
 import HomeNews, { HomeNewsTheme } from '_organisms/home-news'
 import Message, { MessageTheme } from '_atoms/message'
-import Loader from '_atoms/loader'
+import Loader, { LoaderSize } from '_atoms/loader'
 import view from '_templates/home/styles.css'
 import { http } from '_utils/http'
 import navItems from '_utils/navItems'
 import Link from '_atoms/link'
 
-const FeaturedNews = [0]
-const HeadlineNews = [1, 2, 3]
-const HeadlineNews2 = [4, 5]
-const DefaultNews = [6, 7, 8, 9]
 const { MEDIA_URL } = process.env
 
 class HomePage extends React.Component {
@@ -22,41 +19,84 @@ class HomePage extends React.Component {
     super(props)
 
     this.state = {
-      isLoading: true,
+      isLoading: false,
       hasError: false,
+      hasMore: true,
       articles: [],
+      page: 1,
     }
   }
 
   componentDidMount() {
+    window.addEventListener('scroll', _.debounce(() => this.handleScroll(), 100), true)
     this.getArticles()
   }
 
   componentDidUpdate(prevProps) {
     const {
-      match: { params },
+      match: {
+        params: { subject: actualSubject },
+      },
     } = this.props
-    if (params.subject !== prevProps.match.params.subject) {
-      this.getArticles()
-    }
+
+    const {
+      match: {
+        params: { subject: previousSubject },
+      },
+    } = prevProps
+    this.updateStateIfSubjectChanged(actualSubject, previousSubject)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll, true)
   }
 
   getArticles() {
-    const {
-      match: { params },
+    let {
+      match: {
+        params: { subject },
+      },
     } = this.props
-    const subject = params.subject || ''
+    const { page, articles } = this.state
+    subject = subject || ''
     this.setState({ isLoading: true })
+
     http
-      .get(`articles/${subject}`)
+      .get(`articles/${subject}?page=${page}`)
       .then(response =>
         setTimeout(
           () =>
-            this.setState({ isLoading: false, hasError: false, articles: response.data.results }),
+            this.setState({
+              isLoading: false,
+              hasError: false,
+              hasMore: articles.length + response.data.limit < response.data.count,
+              articles: [...articles, ...response.data.results],
+              page: page + 1,
+              subject,
+            }),
           1000
         )
       )
-      .catch(() => this.setState({ isLoading: false, hasError: true, articles: [] }))
+      .catch(() =>
+        this.setState({
+          isLoading: false,
+          hasError: true,
+          articles: [],
+          page: 1,
+          subject: '',
+        })
+      )
+  }
+
+  handleScroll = () => {
+    const { hasError, isLoading, hasMore } = this.state
+    if (hasError || isLoading || !hasMore) return
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+      document.documentElement.offsetHeight
+    ) {
+      this.getArticles()
+    }
   }
 
   buildNews = (position, theme) => {
@@ -81,34 +121,50 @@ class HomePage extends React.Component {
   }
 
   buildContent = () => {
-    const { hasError, isLoading, articles } = this.state
+    const { hasError, isLoading, articles, page } = this.state
+
     if (hasError) return <Message theme={MessageTheme.ERROR}>Something went wrong!</Message>
-    if (isLoading) return <Loader>Loading</Loader>
+    if (isLoading && page === 1) return <Loader size={LoaderSize.LARGE}>Loading</Loader>
     if (articles.length === 0)
       return <Message theme={MessageTheme.WARNING}>Theres is no news to display!</Message>
+
+    const FeaturedNews = _.range(0, 1).map(
+      i => articles[i] && this.buildNews(i, HomeNewsTheme.FEATURED)
+    )
+    const HeadlineNews = _.range(1, 4).map(
+      i => articles[i] && this.buildNews(i, HomeNewsTheme.HEADLINE)
+    )
+    const HeadlineNews2 = _.range(4, 6).map(
+      i => articles[i] && this.buildNews(i, HomeNewsTheme.HEADLINE)
+    )
+    const DefaultNews = _.range(6, articles.length).map(
+      i => articles[i] && this.buildNews(i, HomeNewsTheme.DEFAULT)
+    )
     return (
-      <div className={view.default}>
-        <div className={view.navbar} />
-        <div className={view.featured}>
-          {FeaturedNews.map(i => articles[i] && this.buildNews(i, HomeNewsTheme.FEATURED))}
+      <>
+        <div className={view.default}>
+          <div className={view.navbar} />
+          <div className={view.featured}>{FeaturedNews}</div>
+          <div className={view.headlines}>{HeadlineNews}</div>
+          <div className={view.headlines2}>{HeadlineNews2}</div>
+          <div className={view.defaults}>{DefaultNews}</div>
         </div>
-        <div className={view.headlines}>
-          {HeadlineNews.map(i => articles[i] && this.buildNews(i, HomeNewsTheme.HEADLINE))}
-        </div>
-        <div className={view.headlines2}>
-          {HeadlineNews2.map(i => articles[i] && this.buildNews(i, HomeNewsTheme.HEADLINE))}
-        </div>
-        <div className={view.defaults}>
-          {DefaultNews.map(i => articles[i] && this.buildNews(i, HomeNewsTheme.DEFAULT))}
-        </div>
-      </div>
+        {isLoading && <Loader>Loading</Loader>}
+      </>
     )
   }
 
+  updateStateIfSubjectChanged(actualSubject, previousSubject) {
+    if (actualSubject !== previousSubject) {
+      this.setState({ articles: [], page: 1, subject: actualSubject }, this.getArticles)
+    }
+  }
+
   render() {
+    const { subject } = this.state
     return (
       <>
-        <NavBar items={navItems} />
+        <NavBar items={navItems} activeItem={subject} />
         {this.buildContent()}
       </>
     )

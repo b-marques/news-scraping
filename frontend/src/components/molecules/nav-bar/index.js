@@ -8,9 +8,8 @@ import NavButton from '_atoms/nav-button'
 import styles from './styles.css'
 
 const NavBar = props => {
-  const { className, items } = props
+  const { className, items, activeItem } = props
   const [isExpanded, setExpanded] = useState(false)
-  const [activeItem, setActive] = useState('')
   const [isLargeScreen, setIsLargeScreen] = useState(false)
   const classProps = `${styles['nav-bar']} ${className}`
 
@@ -33,10 +32,6 @@ const NavBar = props => {
     }
   }, [])
 
-  const handleClick = subject => {
-    setActive(subject)
-  }
-
   return (
     <div className={classProps}>
       <NavButton className={styles.button} onClick={() => setExpanded(!isExpanded)} />
@@ -44,7 +39,7 @@ const NavBar = props => {
       {(isLargeScreen || isExpanded) && (
         <div className={styles.navitems}>
           {items.map(item => (
-            <NavItem key={`navitem:${item}`} onClick={handleClick} activeItem={activeItem}>
+            <NavItem key={`navitem:${item}`} activeItem={activeItem}>
               {item}
             </NavItem>
           ))}
@@ -57,11 +52,13 @@ const NavBar = props => {
 NavBar.propTypes = {
   className: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.string),
+  activeItem: PropTypes.string,
 }
 
 NavBar.defaultProps = {
   className: '',
   items: [],
+  activeItem: '',
 }
 
 export default NavBar
