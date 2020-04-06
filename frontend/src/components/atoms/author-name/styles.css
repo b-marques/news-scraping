@@ -1,9 +1,9 @@
 .author-name {
   font-family: OpenSans, sans-serif;
   font-style: italic;
-  font-size: 0.93rem;
-  color: var(--grey-1);
+  font-size: 1rem;
+  color: var(--soft-blue);
   letter-spacing: 0;
-  line-height: 1.29rem;
+  line-height: 1.3rem;
   padding: 0.5rem;
 }

@@ -24,6 +24,9 @@ class ArticleListSerializer(serializers.ModelSerializer):
 
 
 class ArticleDetailSerializer(serializers.ModelSerializer):
+    author = AuthorSerializer()
+    subject = SubjectSerializer()
+    
     class Meta:
         fields = (
             "id",

@@ -1,6 +1,6 @@
-# bruno-marques-fullstack v1.0
+# bruno-marques-fullstack v1.1
 
-Code related to the junior challenge at Cheesecake Labs. Structured as:
+This is a site, with news automatic scraped from other sites.
 
 - Fronted
 - Backend
@@ -37,9 +37,9 @@ Running database on Amazon RDS. Uses PostgreSQL 11.6.
 To run in development mode is needed to have `git`, `docker` and `docker-compose` installed and follow these steps:
 
 ```
-git clone https://github.com/cheesecakelabs-challenges/bruno-marques-fullstack
+git clone https://github.com/b-marques/news-scraping/
 
-cd bruno-marques-fullstack
+cd news-scraping
 
 mv frontend/.example.env frontend/.env
 
@@ -64,7 +64,7 @@ Done.
 To run this project is needed to have `git` and `docker` installed and follow these steps:
 
 ```
-git clone https://github.com/cheesecakelabs-challenges/bruno-marques-fullstack
+git clone https://github.com/b-marques/news-scraping/
 
 cd bruno-marques-fullstack
 
@@ -82,8 +82,7 @@ chmod +x deploy.sh
 If you want to run a local database for test porpouses, you can run
 
 ```
-docker run -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres
- -e POSTGRES_DB=app -p 5432:5432 library/postgres
+docker run -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=app -p 5432:5432 library/postgres
 ```
 
 and set:

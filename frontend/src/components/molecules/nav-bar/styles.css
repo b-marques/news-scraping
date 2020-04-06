@@ -1,12 +1,12 @@
 .nav-bar {
   height: 100%;
-  border-bottom: 1px solid var(--grey-4);
+  box-shadow: 0 1px 5px var(--dark-blue-50);
   display: grid;
   align-items: center;
   grid-template:
-    ".  navbutton . logo ." 56px
+    ".  navbutton logo logo logo" 56px
     ".  navitems  navitems navitems ." auto
-    / 6.5% 24px 1fr 45px 1.2fr;
+    / 6.5% 24px 1fr 45px 1fr;
 
   @media (--lg-viewport) {
     height: 100%;
@@ -18,6 +18,11 @@
 
 .logo {
   grid-area: logo;
+  justify-self: center;
+
+  @media (--lg-viewport) {
+    justify-self: start;
+  }
 }
 
 .navitems {

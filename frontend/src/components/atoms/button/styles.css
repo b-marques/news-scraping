@@ -1,28 +1,29 @@
 .button {
-  background: rgba(0, 0, 0, 0.5);
-  border: 0.07rem solid var(--white);
-  color: var(--white);
+  background: var(--white-50);
+  border: 0.1rem solid var(--dark-blue);
+  color: var(--dark-blue);
   padding: 0.5rem 1rem;
+  justify-self: end;
 }
 
 /* Size */
 .medium {
-  font-family: Lato, sans-serif;
+  font-family: Roboto, sans-serif;
   font-weight: 400;
   font-size: 1rem;
   letter-spacing: 0;
-  line-height: 1.21rem;
+  line-height: 1.2rem;
 }
 
 .large {
-  font-family: Lato, sans-serif;
+  font-family: Roboto, sans-serif;
   font-weight: 400;
   font-size: 1rem;
   letter-spacing: 0;
-  line-height: 1.21rem;
+  line-height: 1.2rem;
 
   @media (--md-viewport) {
-    font-size: 1.29rem;
-    line-height: 1.57rem;
+    font-size: 1.3rem;
+    line-height: 1.6rem;
   }
 }

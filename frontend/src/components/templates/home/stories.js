@@ -14,7 +14,7 @@ const defaultStyle2 = {
   backgroundColor: 'rgba(220, 220, 220, .6)',
 }
 
-storiesOf('HomepageTemplate', module).add('default', () => (
+storiesOf('HomeTemplate', module).add('default', () => (
   <div className={styles.default} style={defaultStyle}>
     <div className={styles.navbar} style={defaultStyle2} />
     <div className={styles.featured} style={defaultStyle2} />
