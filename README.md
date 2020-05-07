@@ -2,6 +2,10 @@
 
 This is a site, with news automatic scraped from other sites.
 
+![Responsive](screenshots/responsive.gif)
+
+Structured as:
+
 - Fronted
 - Backend
 - Nginx
@@ -16,7 +20,7 @@ The core is based in `Django` and `Django REST Framework` communicating with a `
 
 Django and gunicorn will run inside a container named `backend`, listening at port 8000 exposed only locally inside docker network.
 
-The nginx web server will run inside a container named `nginx`, and will listen in port 8080 in its container and binded to the host (Amazon EC2 machine) port 8080. It is also responsile for serving static and media files.
+The nginx web server will run inside a container named `nginx`, and will listen in port 8080 in its container and binded to the host (Amazon EC2 machine) port 8080. It is also responsible for serving static and media files.
 
 There is also a `background_task` running a `crawler` builded with `scrapy` to crawl news from [TechCrunch](https://techcrunch.com) and [FoxNews](https://foxnews.com) periodically.
 
